@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* CSS styles */
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* Body background and overflow styles */
+    background: #eeede5;
+    overflow: hidden;
+}
+
+.container{
+    /* Container styling */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 600px;
+    background: #f5f5f5;
+    box-shadow: 0 30px 50px #dbdbdb;
+}
+
+.container .slide .item{
+    /* Styling for individual items in the slideshow */
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+/* Styling for specific items */
+.slide .item:nth-child(1),
+.slide .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.slide .item:nth-child(3){
+    left: 50%;
+}
+.slide .item:nth-child(4){
+    left: calc(50% + 220px);
+}
+.slide .item:nth-child(5){
+    left: calc(50% + 440px);
+}
+
+.slide .item:nth-child(n + 6){
+    left: calc(50% + 660px);
+    opacity: 0;
+}
+
+.item .content{
+    /* Styling for content within each item */
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 300px;
+    text-align: left;
+    color: #eee;
+    transform: translate(0, -50%);
+    font-family: system-ui;
+    display: none;
+}
+
+
+.slide .item:nth-child(2) .content{
+    display: block;
+}
+
+.content .name {
+    /* Styling for content name */
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+}
+
+.content .des {
+    /* Styling for content description */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+    color: #f2f3ef; /* Dark color */
+    font-weight: bold; /* Bold */
+}
+
+
+.content button{
+    /* Styling for content button */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+
+@keyframes animate {
+    /* Animation keyframes */
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+
+
+.button{
+    /* Styling for navigation buttons container */
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+}
+
+.button button{
+    /* Styling for individual navigation buttons */
+    width: 40px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    border: 1px solid #000;
+    transition: 0.3s;
+}
+
+.button button:hover{
+    /* Styling for button hover effect */
+    color: cornsilk;
+    background: #ababab;
+    color: #fff;
+}
+</style>
+<body>
+    <!--Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Header section -->
+    <div style="text-align: center; background-color:#eeede5; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <!-- Title of the page -->
+        <h1 style="font-family: 'Arial', sans-serif; color: #333; text-transform: uppercase; letter-spacing: 2px;">Explore Destinations</h1>
+    </div>
+    <!-- Container for slideshow -->
+    <div class="container">
+
+        <div class="slide">
+
+            <!-- Individual items in the slideshow -->
+            <div class="item" style="background-image: url(india.jpg);">
+                <div class="content">
+                    <!-- Content for India -->
+                    <div class="name">India</div>
+                    <div class="des">
+                        India, a vibrant tapestry of cultures, colors, and contrasts, where ancient traditions meet modern aspirations on a vast subcontinental canvas.</div>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(swit.jpg);">
+                <div class="content">
+                    <!-- Content for Switzerland -->
+                    <div class="name">Switzerland</div>
+                    <div class="des">Switzerland, a picturesque alpine haven renowned for its pristine landscapes, precision engineering, and commitment to neutrality.</div>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(usa.jpg);">
+                <div class="content">
+                    <!-- Content for USA -->
+                    <div class="name">USA</div>
+                    <div class="des">The United States, a melting pot of diversity and innovation, where the pursuit of liberty, opportunity, and the American Dream fuels a dynamic and influential society.</div>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(australia.jpg);">
+                <div class="content">
+                    <!-- Content for Australia -->
+                    <div class="name">Australia</div>
+                    <div class="des">Australia, a sun-kissed continent of rugged beauty, iconic wildlife, and laid-back charm, where the Outback meets bustling cities against a backdrop of endless beaches.</div>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(neth.jpg);">
+                <div class="content">
+                    <!-- Content for Netherlands -->
+                    <div class="name">Netherland</div>
+                    <div class="des">The Netherlands, a low-lying land of windmills, tulips, and progressive ideals, where historic cities intersect with vibrant cycling culture and waterways weave through picturesque landscapes.</div>
+                    <button>See More</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(newz.jpg);">
+                <div class="content">
+                    <!-- Content for New Zealand -->
+                    <div class="name">New Zealand</div>
+                    <div class="des">New Zealand, a land of stunning natural beauty, from snow-capped mountains to pristine beaches, where Maori heritage intertwines with a spirit of adventure and environmental stewardship.</div>
+                    <button>See More</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="button">
+            <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+    </div>
+</body>
+<script>
+    // JavaScript for slideshow navigation
+    let next = document.querySelector('.next')
+let prev = document.querySelector('.prev')
+
+next.addEventListener('click', function(){
+    let items = document.querySelectorAll('.item')
+    document.querySelector('.slide').appendChild(items[0])
+})
+
+prev.addEventListener('click', function(){
+    let items = document.querySelectorAll('.item')
+    document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
+})
+</script>
+</html>
